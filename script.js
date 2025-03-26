@@ -11,8 +11,8 @@ function convertvalues() {
    const dolarToday = 5.2;
    const euroToday = 6.2;
    const btcToday = 500550.13;
-   const clpToday = 161.46
-
+   const clpToday = 0.00619
+   const libraToday = 7.39
 
 
    const convertedValue = inputValue / dolarToday;
@@ -39,8 +39,15 @@ function convertvalues() {
       currencyValueConverted.innerHTML = new Intl.NumberFormat("es-CL", {
          style: "currency",
          currency: "CLP",
-      }).format(inputValue * clpToday);
+      }).format(inputValue / clpToday);
    }
+   if (currencySelect.value == "libra") {
+      currencyValueConverted.innerHTML = new Intl.NumberFormat("en-GB", {
+         style: "currency",
+         currency: "GBP",
+      }).format(inputValue / libraToday);
+   }
+   
 
 
    currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
@@ -69,6 +76,10 @@ function changeCurrency() {
    if (currencySelect.value == "pesos") {
       currencyName.innerHTML = "CLP";
       currencyImg.src = "./assets/chile.png";
+   }
+   if (currencySelect.value == "libra") {
+      currencyName.innerHTML = "Libra Esterlina";
+      currencyImg.src = "./assets/libra.png";
    }
 
    convertvalues()
